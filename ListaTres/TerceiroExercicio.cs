@@ -15,7 +15,7 @@ public class TerceiroExercicio
         for (contador = 0; contador < 10; contador++)
         {
             Console.WriteLine("Informe o " + (contador + 1) + "º valor: ");
-            vetor[contador] = double.Parse(Console.ReadLine());
+            vetor[contador] = Convert.ToDouble(Console.ReadLine());
         }
         Console.WriteLine("Números informados: ");
         foreach (double valores in vetor)

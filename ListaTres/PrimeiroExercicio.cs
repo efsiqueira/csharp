@@ -15,7 +15,7 @@ public class PrimeiroExercicio
         for(int contador = 1; contador <= quantidadeNotas; contador++)
         {
             Console.WriteLine("Digite a " + contador + " ª nota: ");
-            valor = double.Parse(Console.ReadLine());
+            valor = Convert.ToDouble(Console.ReadLine());
 
             soma += valor;
         }

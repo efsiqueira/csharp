@@ -10,10 +10,10 @@ public class TerceiroExercicio
         string resultadoImc = "";
 
         Console.WriteLine("Informe sua altura (em metros): ");
-        altura = double.Parse(Console.ReadLine());
+        altura = Convert.ToDouble(Console.ReadLine());
 
         Console.WriteLine("Informe seu peso (em quilos): ");
-        peso = double.Parse(Console.ReadLine());
+        peso = Convert.ToDouble(Console.ReadLine());
 
         imc = peso / (altura * altura);
 
