@@ -10,7 +10,7 @@ public class PrimeiroExercicio
         double valor, soma;
 
         Console.WriteLine("Quantas notas deseja informar?");
-        quantidadeNotas = int.Parse(Console.ReadLine());
+        quantidadeNotas = Convert.ToInt32(Console.ReadLine());
 
         for(int contador = 1; contador <= quantidadeNotas; contador++)
         {
