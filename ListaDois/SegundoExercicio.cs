@@ -12,7 +12,7 @@ public class SegundoExercicio
 
         do {
             Console.WriteLine("Informe a " + (quantidadeNotas + 1) + " ª nota do aluno: ");
-            nota = int.Parse(Console.ReadLine());
+            nota = Convert.ToInt32(Console.ReadLine());
             soma += nota;
             quantidadeNotas++;
         } while(nota >= 0);

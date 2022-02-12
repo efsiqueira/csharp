@@ -33,7 +33,7 @@ public class QuartoExercicio
         foreach (string valorRespostas in perguntas)
         {
             Console.WriteLine(valorRespostas);
-            resposta = int.Parse(Console.ReadLine());
+            resposta = Convert.ToInt32(Console.ReadLine());
             somaRespostas += resposta;
         }
 
