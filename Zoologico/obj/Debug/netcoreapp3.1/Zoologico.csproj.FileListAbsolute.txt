@@ -1,0 +1,17 @@
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\bin\Debug\netcoreapp3.1\Zoologico.exe
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\bin\Debug\netcoreapp3.1\Zoologico.deps.json
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\bin\Debug\netcoreapp3.1\Zoologico.runtimeconfig.json
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\bin\Debug\netcoreapp3.1\Zoologico.runtimeconfig.dev.json
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\bin\Debug\netcoreapp3.1\Zoologico.dll
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\bin\Debug\netcoreapp3.1\Zoologico.pdb
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.csprojAssemblyReference.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.AssemblyInfoInputs.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.AssemblyInfo.cs
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.csproj.CoreCompileInputs.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.RazorTargetAssemblyInfo.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\staticwebassets\Zoologico.StaticWebAssets.Manifest.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\staticwebassets\Zoologico.StaticWebAssets.xml
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.dll
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.pdb
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\Zoologico\obj\Debug\netcoreapp3.1\Zoologico.genruntimeconfig.cache
