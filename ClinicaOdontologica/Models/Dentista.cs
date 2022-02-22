@@ -1,0 +1,60 @@
+using System.Collections.Generic;
+
+namespace Models
+{
+    public class Dentista : Pessoa
+    {
+        public static int ID = 0;
+        private static List<Dentista> Dentistas = new List<Dentista>();
+        public string Registro { get; set; }
+        public double Salario { get; set; }
+        public string Especialidade { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString()
+                + $"\nRegistro (CRO): {this.Registro}"
+                + $"\nSalario: R$ {this.Salario}"
+                + $"\nEspecialidade: {this.Especialidade}";
+
+        }
+
+        public Dentista(
+            string Nome,
+            string Cpf,
+            string Fone,
+            string Email,
+            string Registro,
+            double Salario,
+            string Especialidade
+        ) : this(++ID, Nome, Cpf, Fone, Email, Registro, Salario, Especialidade)
+        {}
+        private Dentista(
+            int Id,
+            string Nome,
+            string Cpf,
+            string Fone,
+            string Email,
+            string Registro,
+            double Salario,
+            string Especialidade
+        ) : base(Id, Nome, Cpf, Fone, Email)
+        {
+            this.Registro = Registro;
+            this.Salario = Salario;
+            this.Especialidade = Especialidade;
+
+            Dentistas.Add(this);
+        }
+
+        public static List<Dentista> GetDentistas()
+        {
+            return Dentistas;
+        }
+
+        public static void RemoverDentista(Dentista dentista)
+        {
+            Dentistas.Remove(dentista);
+        }
+    }
+}
