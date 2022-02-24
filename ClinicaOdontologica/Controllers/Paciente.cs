@@ -12,6 +12,7 @@ namespace Controllers
             string Cpf,
             string Fone,
             string Email,
+            string Senha,
             DateTime DataNascimento
         )
         {
@@ -35,12 +36,20 @@ namespace Controllers
                 throw new Exception("Email inválido");
             }
 
+            if (String.IsNullOrEmpty(Senha))
+            {
+                throw new Exception("Senha inválida");
+            }
+            else
+            {
+                Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
+            }
             if (DataNascimento == null || DataNascimento > DateTime.Now)
             {
                 throw new Exception("Data de Nascimento inválida");
             }
 
-            return new Paciente(Nome, Cpf, Fone, Email, DataNascimento);
+            return new Paciente(Nome, Cpf, Fone, Email, Senha, DataNascimento);
         }
 
         public static Paciente AlterarPaciente(
@@ -49,6 +58,7 @@ namespace Controllers
             string Cpf,
             string Fone,
             string Email,
+            string Senha,
             DateTime DataNascimento
         )
         {
@@ -72,6 +82,11 @@ namespace Controllers
             if (!String.IsNullOrEmpty(Email))
             {
                 paciente.Email = Email;
+            }
+
+            if (!String.IsNullOrEmpty(Senha))
+            {
+                paciente.Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
             }
 
             if (DataNascimento > DateTime.Now)

@@ -9,10 +9,14 @@ namespace Models
         private static List<Agendamento> Agendamentos = new List<Agendamento>();
         public int Id { get; set; }
         public int IdPaciente { get; set; }
+        public Paciente Paciente { get; }
         public int IdDentista { get; set; }
+        public Dentista Dentista { get; }
         public int IdSala { get; set; }
+        public Sala Sala { get; }
         public DateTime Data { get; set; }
         public string Procedimento { get; set; }
+        public bool Confirmado { get; set; }
 
         public Agendamento(
             int IdPaciente,
@@ -33,8 +37,11 @@ namespace Models
         {
             this.Id = Id;
             this.IdPaciente = IdPaciente;
+            this.Paciente = Paciente.GetPacientes().Find(Paciente => Paciente.Id == IdPaciente);
             this.IdDentista = IdDentista;
+            this.Dentista = Dentista.GetDentistas().Find(Dentista => Dentista.Id == IdDentista);
             this.IdSala = IdSala;
+            this.Sala = Sala.GetSalas().Find(Sala => Sala.Id == IdSala);
             this.Data = Data;
             this.Procedimento = Procedimento;
 
@@ -44,11 +51,12 @@ namespace Models
         public override string ToString()
         {
             return $"ID: {this.Id}"
-                + $"\nPaciente: {this.IdPaciente}"
-                + $"\nDentista: {this.IdDentista}"
-                + $"\nSala: {this.IdSala}"
+                + $"\nPaciente: {this.Paciente.Nome}"
+                + $"\nDentista: {this.Dentista.Nome}"
+                + $"\nSala: {this.Sala.Numero}"
                 + $"\nData: {this.Data}"
-                + $"\nProcedimento: {this.Procedimento}";
+                + $"\nProcedimento: {this.Procedimento}"
+                + $"\nConfirmado: {(this.Confirmado ? "Sim" : "Não")}";
         }
 
         public override bool Equals(object obj)
@@ -70,7 +78,9 @@ namespace Models
             return Agendamentos;
         }
 
-        public static void RemoverAgendamento(Agendamento agendamento)
+        public static void RemoverAgendamento(
+            Agendamento agendamento
+        )
         {
             Agendamentos.Remove(agendamento);
         }

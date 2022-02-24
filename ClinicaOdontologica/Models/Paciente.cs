@@ -20,8 +20,9 @@ namespace Models
             string Cpf,
             string Fone,
             string Email,
+            string Senha,
             DateTime DataNascimento
-        ) : this(++ID, Nome, Cpf, Fone, Email, DataNascimento)
+        ) : this(++ID, Nome, Cpf, Fone, Email, Senha, DataNascimento)
         {}
         
         private Paciente(
@@ -30,8 +31,9 @@ namespace Models
             string Cpf,
             string Fone,
             string Email,
+            string Senha,
             DateTime DataNascimento
-        ) : base(Id, Nome, Cpf, Fone, Email)
+        ) : base(Id, Nome, Cpf, Fone, Email, Senha)
         {
             this.DataNascimento = DataNascimento;
 

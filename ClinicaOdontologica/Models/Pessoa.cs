@@ -8,6 +8,8 @@ namespace Models
         public string Fone { get; set; }
         public string Email { get; set; }
 
+        public string Senha { get; set; }
+
         public override string ToString()
         {
             return $"ID: {this.Id}\n"
@@ -22,7 +24,8 @@ namespace Models
             string Nome,
             string Cpf,
             string Fone,
-            string Email
+            string Email,
+            string Senha
         )
         {
             this.Id = Id;
@@ -30,6 +33,7 @@ namespace Models
             this.Cpf = Cpf;
             this.Fone = Fone;
             this.Email = Email;
+            this.Senha = Senha;
         }
 
         public override bool Equals(object obj)

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "q3/fwuRPuu0Fud17M6OUj/xDsViZKcU4BDDkyWhE+rmuvl6/KRmxAwvqtKxXvKpRi9ARsfInUvsytPqhPWbSpQ==",
+  "dgSpecHash": "eZRvp8ENe2SougeS4MsBlEuTv/jchu/ei6meUgRnH+XvFNmc8ImBG0LoEW7FhWhN2EoPGrkMmv/uHVGiiEArpA==",
   "success": true,
   "projectFilePath": "C:\\Users\\eduardo.siqueira1\\Desktop\\Github\\csharp\\ClinicaOdontologica\\ClinicaOdontologica.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\eduardo.siqueira1\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

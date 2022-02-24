@@ -24,10 +24,11 @@ namespace Models
             string Cpf,
             string Fone,
             string Email,
+            string Senha,
             string Registro,
             double Salario,
             string Especialidade
-        ) : this(++ID, Nome, Cpf, Fone, Email, Registro, Salario, Especialidade)
+        ) : this(++ID, Nome, Cpf, Fone, Email, Senha, Registro, Salario, Especialidade)
         {}
         private Dentista(
             int Id,
@@ -35,10 +36,11 @@ namespace Models
             string Cpf,
             string Fone,
             string Email,
+            string Senha,
             string Registro,
             double Salario,
             string Especialidade
-        ) : base(Id, Nome, Cpf, Fone, Email)
+        ) : base(Id, Nome, Cpf, Fone, Email, Senha)
         {
             this.Registro = Registro;
             this.Salario = Salario;
