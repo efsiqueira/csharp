@@ -15,3 +15,5 @@ C:\Users\eduardo.siqueira1\Desktop\Github\csharp\ClinicaOdontologica\obj\Debug\n
 C:\Users\eduardo.siqueira1\Desktop\Github\csharp\ClinicaOdontologica\obj\Debug\netcoreapp3.1\ClinicaOdontologica.dll
 C:\Users\eduardo.siqueira1\Desktop\Github\csharp\ClinicaOdontologica\obj\Debug\netcoreapp3.1\ClinicaOdontologica.pdb
 C:\Users\eduardo.siqueira1\Desktop\Github\csharp\ClinicaOdontologica\obj\Debug\netcoreapp3.1\ClinicaOdontologica.genruntimeconfig.cache
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\ClinicaOdontologica\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll
+C:\Users\eduardo.siqueira1\Desktop\Github\csharp\ClinicaOdontologica\obj\Debug\netcoreapp3.1\ClinicaOdontologica.csproj.CopyComplete

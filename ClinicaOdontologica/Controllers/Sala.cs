@@ -56,10 +56,12 @@ namespace Controllers
             int Id
         )
         {
-            Sala sala = (from Sala in Sala.GetSalas()
+            List<Sala> salasModels = Models.Sala.GetSalas();
+            IEnumerable<Sala> salas = from Sala in salasModels
                             where Sala.Id == Id
-                            select Sala).First();
-
+                            select Sala;
+            Sala sala = salas.First();
+            
             if (sala == null)
             {
                 throw new Exception("Sala não encontrada");
