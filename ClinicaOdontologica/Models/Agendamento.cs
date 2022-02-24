@@ -24,7 +24,7 @@ namespace Models
             int IdSala,
             DateTime Data,
             string Procedimento
-        ) : this(+ID, IdPaciente, IdDentista, IdSala, Data, Procedimento)
+        ) : this(++ID, IdPaciente, IdDentista, IdSala, Data, Procedimento)
         {}
         private Agendamento(
             int Id,
