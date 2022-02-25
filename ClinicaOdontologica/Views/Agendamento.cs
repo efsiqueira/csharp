@@ -56,8 +56,7 @@ namespace Views
                 IdPaciente,
                 IdDentista,
                 IdSala,
-                Data,
-                Procedimentos
+                Data
             );
 
         }
@@ -101,8 +100,7 @@ namespace Views
             AgendamentoController.AlterarAgendamento(
                 Id,
                 IdSala,
-                Data,
-                Procedimentos
+                Data
             );
 
         }

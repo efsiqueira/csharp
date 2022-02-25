@@ -9,15 +9,14 @@ namespace Models
         public static List<Atendimento> Atendimentos = new List<Atendimento>();
         public int Id { get; set; }
         public int IdAgendamento { get; set; }
+        public int IdProcedimento { get; set; }
         public Agendamento Agendamento { get; }
         public Procedimento Procedimento { get; }
-        public int IdProcedimento { get; set; }
+        
 
         public Atendimento(
             int IdAgendamento,
-            int IdProcedimento,
-            Atendimento Atendimento,
-            Procedimento Procedimento
+            int IdProcedimento
         ) : this(++ID, IdAgendamento, IdProcedimento)
         {}
 
@@ -31,8 +30,7 @@ namespace Models
             this.IdAgendamento = IdAgendamento;
             this.IdProcedimento = IdProcedimento;
             this.Agendamento = Agendamento.GetAgendamentos().Find(Agendamento => Agendamento.Id == IdAgendamento);
-            // Criar o getprocedimentos
-            //this.Procedimento = Procedimento.GetProcedimentos().Find(Procedimento => Procedimento.Id == IdProcedimento);
+            this.Procedimento = Procedimento.GetProcedimentos().Find(Procedimento => Procedimento.Id == IdProcedimento);
 
             Atendimentos.Add(this);
         }
@@ -40,7 +38,38 @@ namespace Models
         public override string ToString()
         {
             return $"\nID: {this.Id}"
-                + $"\n";
+                + $"\nDentista: {this.Agendamento.Dentista.Nome}"
+                + $"\nPaciente: {this.Agendamento.Paciente.Nome}"
+                + $"\nSala: {this.Agendamento.Sala.Numero}"
+                + $"\nData: {this.Agendamento.Data}"
+                + $"\nProcedimento: {this.Procedimento.Descricao}"
+                + $"\nValor: R$ {this.Procedimento.Preco}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!Atendimento.ReferenceEquals(obj, this))
+            {
+                return false;
+            }
+            Atendimento it = (Atendimento) obj;
+            return it.Id == this.Id;
+        }
+
+        public static List<Atendimento> GetAtendimentos()
+        {
+            return Atendimentos;
+        }
+
+        public static void RemoverAtendimento(
+            Atendimento atendimento
+        )
+        {
+            Atendimentos.Remove(atendimento);
         }
     }
 }
