@@ -6,6 +6,7 @@ namespace Models
     public class Procedimento
     {
         public static int ID = 0;
+        private static List<Procedimento> Procedimentos = new List<Procedimento>();
         public int Id { get; set; }
         public string Descricao { get; set; }
         public double Preco { get; set; }
@@ -13,8 +14,15 @@ namespace Models
         public Procedimento(
             string Descricao,
             double Preco
+        ) : this(++ID, Descricao, Preco)
+        {}
+        private Procedimento(
+            int Id,
+            string Descricao,
+            double Preco
         )
         {
+            this.Id = Id;
             this.Descricao = Descricao;
             this.Preco = Preco;
         }
@@ -38,6 +46,18 @@ namespace Models
             }
             Procedimento it = (Procedimento) obj;
             return it.Id == this.Id;
+        }
+
+        public static List<Procedimento> GetProcedimentos()
+        {
+            return Procedimentos;
+        }
+
+        public static void RemoverProcedimento(
+            Procedimento procedimento
+        )
+        {
+            Procedimentos.Remove(procedimento);
         }
     }
 }
