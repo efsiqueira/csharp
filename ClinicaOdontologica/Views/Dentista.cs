@@ -32,7 +32,7 @@ namespace Views
             }
             
             Console.WriteLine("Digite a Especialidade do Dentista: ");
-            string Especialidade = Console.ReadLine();
+            int IdEspecialidade = Convert.ToInt32(Console.ReadLine());
             
             DentistaController.InserirDentista(
                 Nome,
@@ -42,7 +42,7 @@ namespace Views
                 Senha,
                 Registro,
                 Salario,
-                Especialidade
+                IdEspecialidade
             );
         }
 
@@ -55,7 +55,7 @@ namespace Views
             {
                 Id = Convert.ToInt32(Console.ReadLine());   
             }
-            catch (System.Exception)
+            catch
             {
                 throw new Exception("Id inválido.");
             }
@@ -82,7 +82,7 @@ namespace Views
             }
             
             Console.WriteLine("Digite a Especialidade do Dentista: ");
-            string Especialidade = Console.ReadLine();
+            int IdEspecialidade = Convert.ToInt32(Console.ReadLine());
             
             DentistaController.AlterarDentista(
                 Id,
@@ -93,7 +93,7 @@ namespace Views
                 Senha,
                 Registro,
                 Salario,
-                Especialidade
+                IdEspecialidade
             );
         }
 

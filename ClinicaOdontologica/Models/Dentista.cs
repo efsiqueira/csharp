@@ -11,15 +11,6 @@ namespace Models
         public int IdEspecialidade { get; set; }
         public Especialidade Especialidade { get; }
 
-        public override string ToString()
-        {
-            return base.ToString()
-                + $"\nRegistro (CRO): {this.Registro}"
-                + $"\nSalario: R$ {this.Salario}"
-                + $"\nEspecialidade: {this.Especialidade.Id}";
-
-        }
-
         public Dentista(
             string Nome,
             string Cpf,
@@ -48,6 +39,15 @@ namespace Models
             this.IdEspecialidade = IdEspecialidade;
 
             Dentistas.Add(this);
+        }
+
+        public override string ToString()
+        {
+            return base.ToString()
+                + $"\nRegistro (CRO): {this.Registro}"
+                + $"\nSalario: R$ {this.Salario}"
+                + $"\nEspecialidade: {this.Especialidade.Descricao}";
+
         }
 
         public static List<Dentista> GetDentistas()
