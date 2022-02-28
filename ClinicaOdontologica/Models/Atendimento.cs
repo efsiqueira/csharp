@@ -9,8 +9,8 @@ namespace Models
         public static List<Atendimento> Atendimentos = new List<Atendimento>();
         public int Id { get; set; }
         public int IdAgendamento { get; set; }
-        public int IdProcedimento { get; set; }
         public Agendamento Agendamento { get; }
+        public int IdProcedimento { get; set; }
         public Procedimento Procedimento { get; }
         
 
@@ -28,8 +28,8 @@ namespace Models
         {
             this.Id = Id;
             this.IdAgendamento = IdAgendamento;
-            this.IdProcedimento = IdProcedimento;
             this.Agendamento = Agendamento.GetAgendamentos().Find(Agendamento => Agendamento.Id == IdAgendamento);
+            this.IdProcedimento = IdProcedimento;
             this.Procedimento = Procedimento.GetProcedimentos().Find(Procedimento => Procedimento.Id == IdProcedimento);
 
             Atendimentos.Add(this);

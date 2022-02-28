@@ -114,7 +114,7 @@ namespace ClinicaOdontologica
         public static void MenuPrincipal()
         {
             Console.WriteLine("<============== BEM VINDO ==============>");
-            Console.WriteLine("+---------------------------++----------+");
+            Console.WriteLine("+---------------------------------------+");
             Console.WriteLine("| Operação | Descrição                  |");
             Console.WriteLine("|----------|----------------------------|");
             Console.WriteLine("| 0        | Sair                       |");

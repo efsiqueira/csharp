@@ -9,6 +9,7 @@ namespace Views
         public static void InserirDentista()
         {   
             double Salario = 0;
+            int IdEspecialidade;
             Console.WriteLine("Digite o Nome do Dentista: ");
             string Nome = Console.ReadLine();
             Console.WriteLine("Digite o CPF do Dentista: ");
@@ -31,8 +32,15 @@ namespace Views
                 throw new Exception("Salário inválido.");
             }
             
-            Console.WriteLine("Digite a Especialidade do Dentista: ");
-            int IdEspecialidade = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Digite o Id da Especialidade do Dentista: ");
+            try
+            {
+                IdEspecialidade = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                throw new Exception("Id inválido.");
+            }
             
             DentistaController.InserirDentista(
                 Nome,
@@ -49,6 +57,7 @@ namespace Views
         public static void AlterarDentista()
         {   
             int Id = 0;
+            int IdEspecialidade;
             double Salario = 0;
             Console.WriteLine("Digite o Id do Dentista: ");
             try
@@ -81,8 +90,15 @@ namespace Views
                 throw new Exception("Salário inválido.");
             }
             
-            Console.WriteLine("Digite a Especialidade do Dentista: ");
-            int IdEspecialidade = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Digite o Id da Especialidade do Dentista: ");
+            try
+            {
+                IdEspecialidade = Convert.ToInt32(Console.ReadLine());
+            }
+            catch
+            {
+                throw new Exception("Id inválido.");
+            }
             
             DentistaController.AlterarDentista(
                 Id,

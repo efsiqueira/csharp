@@ -16,7 +16,7 @@ namespace Controllers
             {
                 throw new Exception("Descrição inválida");
             }
-            if (Double.IsNaN(Preco))
+            if (Double.IsNaN(Preco) || Double.IsNegative(Preco))
             {
                 throw new Exception("Preço inválido");
             }
@@ -36,7 +36,7 @@ namespace Controllers
             {
                 procedimento.Descricao = Descricao;
             }
-            if (!Double.IsNaN(Preco))
+            if (!Double.IsNaN(Preco) || Double.IsNegative(Preco))
             {
                 procedimento.Preco = Preco;
             }
