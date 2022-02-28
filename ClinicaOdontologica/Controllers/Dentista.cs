@@ -19,6 +19,8 @@ namespace Controllers
             int IdEspecialidade
         )
         {
+            EspecialidadeController.GetEspecialidade(IdEspecialidade);
+
             if (String.IsNullOrEmpty(Nome))
             {
                 throw new Exception("Nome inválido");
@@ -66,6 +68,8 @@ namespace Controllers
         )
         {
             Dentista dentista = GetDentista(Id);
+
+            EspecialidadeController.GetEspecialidade(IdEspecialidade);
 
             if (!String.IsNullOrEmpty(Nome))
             {

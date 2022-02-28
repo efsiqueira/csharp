@@ -19,9 +19,10 @@ namespace Views
             {
                 throw new Exception("Id inválido.");
             }
+            Console.WriteLine("Digite o Id do Procedimento: ");
             try
             {
-                IdProcedimento = Convert.ToInt32("Digite o Id do Procedimento: ");
+                IdProcedimento = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {

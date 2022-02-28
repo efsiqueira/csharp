@@ -25,6 +25,8 @@ namespace Models
             this.Id = Id;
             this.Descricao = Descricao;
             this.Preco = Preco;
+
+            Procedimentos.Add(this);
         }
 
         public override string ToString()

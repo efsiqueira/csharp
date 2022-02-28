@@ -49,9 +49,6 @@ namespace Views
                 throw new Exception("Data inválida.");
             }
 
-            Console.WriteLine("Digite o Id do Procedimento do Agendamento: ");
-            string Procedimentos = Console.ReadLine();
-
             AgendamentoController.InserirAgendamento(
                 IdPaciente,
                 IdDentista,
@@ -93,9 +90,6 @@ namespace Views
             {
                 throw new Exception("Data inválida.");
             }
-
-            Console.WriteLine("Digite os Procedimentos do Agendamento: ");
-            string Procedimentos = Console.ReadLine();
 
             AgendamentoController.AlterarAgendamento(
                 Id,
