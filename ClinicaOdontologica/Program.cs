@@ -40,6 +40,7 @@ namespace ClinicaOdontologica
             EspecialidadeController.InserirEspecialidade("Endodontia", "Estruturas internas dos dentes");
             ProcedimentoController.InserirProcedimento("Extração dentária", 250.00);
             DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);
+            DentistaController.InserirDentista("Administrador", "111.111.111-11", "47 99999-9999", "admin@admin.com", "admin", "12345/SC", 15000, 1);
             PacienteController.InserirPaciente("Amélia da Silva", "111.111.111-11", "47 88888-8888", "amelia.silva@paciente.com", "123456", Convert.ToDateTime("1990-01-01"));
             SalaController.IncluirSala("B135", "RaioX");
 
@@ -113,7 +114,7 @@ namespace ClinicaOdontologica
         
         public static void MenuPrincipal()
         {
-            Console.WriteLine("<============== BEM VINDO ==============>");
+            Console.WriteLine($"<============== BEM VINDO Dr(a). {Auth.Dentista.Nome} ==============>");
             Console.WriteLine("+---------------------------------------+");
             Console.WriteLine("| Operação | Descrição                  |");
             Console.WriteLine("|----------|----------------------------|");
