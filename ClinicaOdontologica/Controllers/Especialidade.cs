@@ -54,7 +54,7 @@ namespace Controllers
             return especialidade;
         }
 
-        public static List<Especialidade> VisualizarEspecialidade()
+        public static IEnumerable<Especialidade> VisualizarEspecialidade()
         {
             return Especialidade.GetEspecialidades();
         }

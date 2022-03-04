@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace Models
 {
     public class Auth
@@ -12,8 +14,7 @@ namespace Models
             string Senha
         )
         {
-            Paciente paciente = Paciente.GetPacientes()
-                .Find(Paciente => Paciente.Email == Email && BCrypt.Net.BCrypt.Verify(Senha, Paciente.Senha));
+            Paciente paciente = Paciente.VerifyLogin(Email, Senha);
 
             if (paciente != null)
             {
@@ -24,8 +25,7 @@ namespace Models
             }
             else
             {
-                Dentista dentista = Dentista.GetDentistas()
-                    .Find(Dentista => Dentista.Email == Email && BCrypt.Net.BCrypt.Verify(Senha, Dentista.Senha));
+                Dentista dentista = Dentista.VerifyLogin(Email, Senha);
                 System.Console.WriteLine(dentista.Senha);
                 if (dentista != null)
                 {

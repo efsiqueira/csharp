@@ -53,7 +53,7 @@ namespace Controllers
             return procedimento;
         }
 
-        public static List<Procedimento> VisualizarProcedimento()
+        public static IEnumerable<Procedimento> VisualizarProcedimento()
         {
             return Procedimento.GetProcedimentos();
         }

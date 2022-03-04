@@ -1,15 +1,22 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using Repository;
 
 namespace Models
 {
     public class Dentista : Pessoa
     {
-        public static int ID = 0;
-        private static List<Dentista> Dentistas = new List<Dentista>();
+        [Required]
         public string Registro { get; set; }
         public double Salario { get; set; }
-        public int IdEspecialidade { get; set; }
-        public Especialidade Especialidade { get; }
+        public int EspecialidadeId { get; set; }
+        public Especialidade Especialidade { get; set; }
+
+        public ICollection<Agendamento> Agendamentos { get; set; }
+
 
         public override string ToString()
         {
@@ -19,6 +26,10 @@ namespace Models
                 + $"\nEspecialidade: {this.Especialidade.Descricao}";
 
         }
+
+        public Dentista() {
+        }
+
         public Dentista(
             string Nome,
             string Cpf,
@@ -27,37 +38,46 @@ namespace Models
             string Senha,
             string Registro,
             double Salario,
-            int IdEspecialidade
-        ) : this(++ID, Nome, Cpf, Fone, Email, Senha, Registro, Salario, IdEspecialidade)
-        {}
-        private Dentista(
-            int Id,
-            string Nome,
-            string Cpf,
-            string Fone,
-            string Email,
-            string Senha,
-            string Registro,
-            double Salario,
-            int IdEspecialidade
-        ) : base(Id, Nome, Cpf, Fone, Email, Senha)
+            int EspecialidadeId
+        ) : base(Nome, Cpf, Fone, Email, Senha)
         {
             this.Registro = Registro;
             this.Salario = Salario;
-            this.IdEspecialidade = IdEspecialidade;
-            this.Especialidade = Especialidade.GetEspecialidades().Find(Especialidade => Especialidade.Id == IdEspecialidade);
+            this.EspecialidadeId = EspecialidadeId;
 
-            Dentistas.Add(this);
+            Context db = new Context();
+            db.Dentistas.Add(this);
+            db.SaveChanges();
         }
 
-        public static List<Dentista> GetDentistas()
+        public static IEnumerable<Dentista> GetDentistas()
         {
-            return Dentistas;
+            Context db = new Context();
+            return db.Dentistas.Include("Especialidade");
         }
 
         public static void RemoverDentista(Dentista dentista)
         {
-            Dentistas.Remove(dentista);
+            Context db = new Context();
+            db.Dentistas.Remove(dentista);
+            db.SaveChanges();
+        }
+
+        public static Dentista VerifyLogin(
+            string Email,
+            string Senha
+        )
+        {
+            
+            try
+            {
+                return GetDentistas().First(Dentista => Dentista.Email == Email 
+                    && BCrypt.Net.BCrypt.Verify(Senha, Dentista.Senha));
+            }
+            catch
+            {
+                return null;    
+            }
         }
     }
 }
