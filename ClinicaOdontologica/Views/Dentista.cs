@@ -9,7 +9,7 @@ namespace Views
         public static void InserirDentista()
         {   
             double Salario = 0;
-            int IdEspecialidade;
+            int EspecialidadeId;
             Console.WriteLine("Digite o Nome do Dentista: ");
             string Nome = Console.ReadLine();
             Console.WriteLine("Digite o CPF do Dentista: ");
@@ -35,7 +35,7 @@ namespace Views
             Console.WriteLine("Digite o Id da Especialidade do Dentista: ");
             try
             {
-                IdEspecialidade = Convert.ToInt32(Console.ReadLine());
+                EspecialidadeId = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -50,14 +50,14 @@ namespace Views
                 Senha,
                 Registro,
                 Salario,
-                IdEspecialidade
+                EspecialidadeId
             );
         }
 
         public static void AlterarDentista()
         {   
             int Id = 0;
-            int IdEspecialidade;
+            int EspecialidadeId;
             double Salario = 0;
             Console.WriteLine("Digite o Id do Dentista: ");
             try
@@ -93,7 +93,7 @@ namespace Views
             Console.WriteLine("Digite o Id da Especialidade do Dentista: ");
             try
             {
-                IdEspecialidade = Convert.ToInt32(Console.ReadLine());
+                EspecialidadeId = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -109,7 +109,7 @@ namespace Views
                 Senha,
                 Registro,
                 Salario,
-                IdEspecialidade
+                EspecialidadeId
             );
         }
 

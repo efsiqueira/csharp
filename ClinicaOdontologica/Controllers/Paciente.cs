@@ -111,7 +111,7 @@ namespace Controllers
             return paciente;
         }
 
-        public static List<Paciente> VisualizarPaciente()
+        public static IEnumerable<Paciente> VisualizarPaciente()
         {
             return Paciente.GetPacientes();
         }

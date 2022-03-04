@@ -1,33 +1,31 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using Repository;
 
 namespace Models
 {
     public class Sala
     {
-        public static int ID = 0;
-        private static List<Sala> Salas = new List<Sala>();
         public int Id { get; set; }
+        [Required]
         public string Numero { get; set; }
+        [Required]
         public string Equipamentos { get; set; }
-        
-        public Sala(
-            string Numero,
-            string Equipamentos
-        ) : this(++ID, Numero, Equipamentos)
-        {
+        public ICollection<Agendamento> Agendamentos { get; set; }
 
-        }
-        private Sala(
-            int Id,
+        public Sala() { }
+        public Sala(
             string Numero,
             string Equipamentos
         )
         {
-            this.Id = Id;
             this.Numero = Numero;
             this.Equipamentos = Equipamentos;
 
-            Salas.Add(this);
+            Context db = new Context();
+            db.Salas.Add(this);
+            db.SaveChanges();
         }
 
         public override string ToString()
@@ -51,14 +49,17 @@ namespace Models
             return it.Id == this.Id;
         }
 
-        public static List<Sala> GetSalas()
+        public static IEnumerable<Sala> GetSalas()
         {
-            return Salas;
+            Context db = new Context();
+            return from Sala in db.Salas select Sala;
         }
 
         public static void RemoverSala(Sala sala)
         {
-            Salas.Remove(sala);
+            Context db = new Context();
+            db.Salas.Remove(sala);
+            db.SaveChanges();
         }
     }
 }

@@ -1,13 +1,12 @@
 namespace Models
 {
-    public class Pessoa
+    public class Pessoa : IVerifyLogin<Pessoa>
     {
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Fone { get; set; }
         public string Email { get; set; }
-
         public string Senha { get; set; }
 
         public override string ToString()
@@ -19,8 +18,8 @@ namespace Models
             + $"Email: {this.Email}";
         }
 
+        public Pessoa() { }
         public Pessoa(
-            int Id,
             string Nome,
             string Cpf,
             string Fone,
@@ -28,7 +27,6 @@ namespace Models
             string Senha
         )
         {
-            this.Id = Id;
             this.Nome = Nome;
             this.Cpf = Cpf;
             this.Fone = Fone;

@@ -16,10 +16,10 @@ namespace Controllers
             string Senha,
             string Registro,
             double Salario,
-            int IdEspecialidade
+            int EspecialidadeId
         )
         {
-            EspecialidadeController.GetEspecialidade(IdEspecialidade);
+            EspecialidadeController.GetEspecialidade(EspecialidadeId);
 
             if (String.IsNullOrEmpty(Nome))
             {
@@ -52,7 +52,7 @@ namespace Controllers
                 throw new Exception("Registro inválido");
             }
 
-            return new Dentista(Nome, Cpf, Fone, Email, Senha, Registro, Salario, IdEspecialidade);
+            return new Dentista(Nome, Cpf, Fone, Email, Senha, Registro, Salario, EspecialidadeId);
         }
 
         public static Dentista AlterarDentista(
@@ -64,12 +64,12 @@ namespace Controllers
             string Senha,
             string Registro,
             double Salario,
-            int IdEspecialidade
+            int EspecialidadeId
         )
         {
             Dentista dentista = GetDentista(Id);
 
-            EspecialidadeController.GetEspecialidade(IdEspecialidade);
+            EspecialidadeController.GetEspecialidade(EspecialidadeId);
 
             if (!String.IsNullOrEmpty(Nome))
             {
@@ -96,6 +96,8 @@ namespace Controllers
                 dentista.Registro = Registro;
             }
 
+            dentista.Id = Id;
+            dentista.EspecialidadeId = EspecialidadeId;
             return dentista;
         }
 
@@ -108,7 +110,7 @@ namespace Controllers
             return dentista;
         }
 
-        public static List<Dentista> VisualizarDentista()
+        public static IEnumerable<Dentista> VisualizarDentista()
         {
             return Dentista.GetDentistas();
         }

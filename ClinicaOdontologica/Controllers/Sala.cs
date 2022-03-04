@@ -42,25 +42,21 @@ namespace Controllers
         )
         {
             Sala sala = GetSala(Id);
-            Models.Sala.RemoverSala(sala);
+            Sala.RemoverSala(sala);
 
             return sala;
         }
 
-        public static List<Sala> VisualizarSala()
+        public static IEnumerable<Sala> VisualizarSala()
         {
-            return Models.Sala.GetSalas();
+            return Sala.GetSalas();
         }
 
         public static Sala GetSala(
             int Id
         )
         {
-            List<Sala> salasModels = Models.Sala.GetSalas();
-            IEnumerable<Sala> salas = from Sala in salasModels
-                            where Sala.Id == Id
-                            select Sala;
-            Sala sala = salas.First();
+            Sala sala = Models.Sala.GetSalas().First(Sala => Sala.Id == Id);
             
             if (sala == null)
             {

@@ -8,14 +8,14 @@ namespace Views
     {
         public static void InserirAgendamento()
         {
-            int IdPaciente;
-            int IdDentista;
-            int IdSala;
+            int PacienteId;
+            int DentistaId;
+            int SalaId;
             DateTime Data = DateTime.Now;
             Console.WriteLine("Digite o Id do Paciente do Agendamento: ");
             try
             {
-                IdPaciente = Convert.ToInt32(Console.ReadLine());
+                PacienteId = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -24,7 +24,7 @@ namespace Views
             Console.WriteLine("Digite o Id do Dentista do Agendamento: ");
             try
             {
-                IdDentista = Convert.ToInt32(Console.ReadLine());
+                DentistaId = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -33,7 +33,7 @@ namespace Views
             Console.WriteLine("Digite o Id da Sala: ");
             try
             {
-                IdSala = Convert.ToInt32(Console.ReadLine());
+                SalaId = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -50,9 +50,9 @@ namespace Views
             }
 
             AgendamentoController.InserirAgendamento(
-                IdPaciente,
-                IdDentista,
-                IdSala,
+                PacienteId,
+                DentistaId,
+                SalaId,
                 Data
             );
 
@@ -61,7 +61,7 @@ namespace Views
         public static void AlterarAgendamento()
         {
             int Id = 0;
-            int IdSala;
+            int SalaId;
             DateTime Data = DateTime.Now;
             Console.WriteLine("Digite o Id do Agendamento: ");
             try
@@ -75,7 +75,7 @@ namespace Views
             Console.WriteLine("Digite o Id da Sala do Agendamento: ");
             try
             {
-                IdSala = Convert.ToInt32(Console.ReadLine());
+                SalaId = Convert.ToInt32(Console.ReadLine());
             }
             catch
             {
@@ -93,7 +93,7 @@ namespace Views
 
             AgendamentoController.AlterarAgendamento(
                 Id,
-                IdSala,
+                SalaId,
                 Data
             );
 
@@ -126,9 +126,9 @@ namespace Views
             }
         }
 
-        public static void GetAgendamentosPorPaciente(int IdPaciente)
+        public static void GetAgendamentosPorPaciente(int PacienteId)
         {
-            foreach (Agendamento item in AgendamentoController.GetAgendamentosPorPaciente(IdPaciente))
+            foreach (Agendamento item in AgendamentoController.GetAgendamentosPorPaciente(PacienteId))
             {
                 Console.WriteLine(item);
             }
