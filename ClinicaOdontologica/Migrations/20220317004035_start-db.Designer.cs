@@ -9,7 +9,7 @@ using Repository;
 namespace ClinicaOdontologica.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220303235912_start-db")]
+    [Migration("20220317004035_start-db")]
     partial class startdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,16 +31,22 @@ namespace ClinicaOdontologica.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("IdDentista")
+                    b.Property<int>("DentistaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdPaciente")
+                    b.Property<int>("PacienteId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdSala")
+                    b.Property<int>("SalaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DentistaId");
+
+                    b.HasIndex("PacienteId");
+
+                    b.HasIndex("SalaId");
 
                     b.ToTable("Agendamentos");
                 });
@@ -51,13 +57,17 @@ namespace ClinicaOdontologica.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("IdAgendamento")
+                    b.Property<int>("AgendamentoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdProcedimento")
+                    b.Property<int>("ProcedimentoId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AgendamentoId");
+
+                    b.HasIndex("ProcedimentoId");
 
                     b.ToTable("Atendimentos");
                 });
@@ -181,6 +191,42 @@ namespace ClinicaOdontologica.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Salas");
+                });
+
+            modelBuilder.Entity("Models.Agendamento", b =>
+                {
+                    b.HasOne("Models.Dentista", null)
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("DentistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Models.Paciente", null)
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("PacienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Models.Sala", null)
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("SalaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Models.Atendimento", b =>
+                {
+                    b.HasOne("Models.Agendamento", null)
+                        .WithMany("Atendimentos")
+                        .HasForeignKey("AgendamentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Models.Procedimento", null)
+                        .WithMany("Atendimentos")
+                        .HasForeignKey("ProcedimentoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Models.Dentista", b =>

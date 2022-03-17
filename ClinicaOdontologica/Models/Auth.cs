@@ -18,7 +18,7 @@ namespace Models
 
             if (paciente != null)
             {
-                System.Console.WriteLine(paciente.Senha);
+                //System.Console.WriteLine(paciente.Senha);
                 isLogged = true;
                 Paciente = paciente;
                 Dentista = null;
@@ -26,7 +26,7 @@ namespace Models
             else
             {
                 Dentista dentista = Dentista.VerifyLogin(Email, Senha);
-                System.Console.WriteLine(dentista.Senha);
+                //System.Console.WriteLine(dentista.Senha);
                 if (dentista != null)
                 {
                     isLogged = true;
