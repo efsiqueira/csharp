@@ -18,7 +18,6 @@ namespace Models
         public bool Confirmado { get; set; }
         public ICollection<Atendimento> Atendimentos { get; set; }
 
-
         public Agendamento() { }
         public Agendamento(
             int PacienteId,

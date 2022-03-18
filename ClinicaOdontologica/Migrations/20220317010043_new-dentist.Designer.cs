@@ -9,8 +9,8 @@ using Repository;
 namespace ClinicaOdontologica.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220304005009_update-database")]
-    partial class updatedatabase
+    [Migration("20220317010043_new-dentist")]
+    partial class newdentist
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
