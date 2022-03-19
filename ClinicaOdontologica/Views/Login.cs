@@ -6,6 +6,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
+using Models;
 
 namespace Views
 {
@@ -21,53 +22,83 @@ namespace Views
         }
     }*/
 
-    public class Login : Form
+    public class FormLogin : Form
     {
 
-        Label labelNome;
-        Label labelDtNasc;
-        Label labelCpf;
-        TextBox textNome;
-        TextBox textDtNasc;
-        TextBox textCpf;
+        Label labelLogin;
+        Label labelSenha;
+        TextBox textLogin;
+        TextBox textSenha;
+        Button buttonConfirmar;
+        Button buttonFechar;
 
-
-        public Login()
+        public FormLogin()
         {
-            this.ClientSize = new System.Drawing.Size(300, 350);
+            this.ClientSize = new System.Drawing.Size(200, 220);
             this.Text = "Login";
 
-            labelNome = new Label();
-            labelNome.Text = "Nome";
-            labelNome.Location = new Point(20, 20);
+            labelLogin = new Label();
+            labelLogin.Text = "Login";
+            labelLogin.Location = new Point(20, 20);
 
-            labelDtNasc = new Label();
-            labelDtNasc.Text = "Data de Nascimento";
-            labelDtNasc.Location = new Point(20, 75);
-            labelDtNasc.Size = new Size(200, 18);
+            labelSenha = new Label();
+            labelSenha.Text = "Senha";
+            labelSenha.Location = new Point(20, 90);
 
-            labelCpf = new Label();
-            labelCpf.Text = "CPF";
-            labelCpf.Location = new Point(20, 130);
+            textLogin = new TextBox();
+            textLogin.Location = new Point(20,45);
+            textLogin.Size = new Size(160,15);
 
-            textNome = new TextBox();
-            textNome.Location = new Point(20,50);
-            textNome.Size = new Size(250,18);
+            textSenha = new TextBox();
+            textSenha.Location = new Point(20,115);
+            textSenha.Size = new Size(160,15);
+            textSenha.PasswordChar = '*';
 
-            textDtNasc = new TextBox();
-            textDtNasc.Location = new Point(20,100);
-            textDtNasc.Size = new Size(250,18);
+            buttonConfirmar = new Button();
+            buttonConfirmar.Text = "Confirmar";
+            buttonConfirmar.Size = new Size(80,30);
+            buttonConfirmar.Location = new Point(20,170);
+            buttonConfirmar.Click += new EventHandler(this.buttonConfirmarClick);
+            
+            buttonFechar = new Button();
+            buttonFechar.Text = "Fechar";
+            buttonFechar.Size = new Size(80,30);
+            buttonFechar.Location = new Point(100,170);
+            buttonFechar.Click += new EventHandler(this.buttonFecharClick);
 
-            textCpf = new TextBox();
-            textCpf.Location = new Point(20,155);
-            textCpf.Size = new Size(250,18);
+            this.Controls.Add(labelLogin);
+            this.Controls.Add(labelSenha);
+            this.Controls.Add(textLogin);
+            this.Controls.Add(textSenha);
+            this.Controls.Add(buttonConfirmar);
+            this.Controls.Add(buttonFechar);
+        }
 
-            this.Controls.Add(labelNome);
-            this.Controls.Add(labelDtNasc);
-            this.Controls.Add(labelCpf);
-            this.Controls.Add(textNome);
-            this.Controls.Add(textDtNasc);
-            this.Controls.Add(textCpf);
+        private void buttonConfirmarClick(object sender, EventArgs e)
+        {
+            try
+                {
+                    Auth.Login(textLogin.Text, textSenha.Text);
+                    if (Auth.Dentista != null)
+                    {
+                        FormDentista form = new FormDentista();
+                        form.Show();
+                    }
+                    if (Auth.Paciente != null)
+                    {
+                        //MenuPaciente();
+                    }
+                    Auth.Logout();
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine(err);
+                }
+        }
+
+        private void buttonFecharClick(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }
