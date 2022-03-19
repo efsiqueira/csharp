@@ -15,7 +15,7 @@ namespace Views
     {
 
         ListView listView;
-        
+
 
         public FormDentistaCrud()
         {
@@ -24,7 +24,8 @@ namespace Views
             listView = new ListView();
             listView.Location = new Point(20,30);
             listView.Size = new Size(460,260);
-
+            listView.View = View.Details;
+            
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
             listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);
@@ -35,8 +36,15 @@ namespace Views
             listView.Columns.Add("Salario", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Id Especialidade", -2, HorizontalAlignment.Left);
 
-            ListViewItem firstLine = new ListViewItem("1");
+            listView.FullRowSelect = true;
+			listView.GridLines = true;
+			listView.AllowColumnReorder = true;
+			listView.Sorting = SortOrder.Ascending;
+
+            /*ListViewItem firstLine = new ListViewItem("1");
             firstLine.SubItems.Add("Jose do Carmo");
+
+            listView.Items.Add(firstLine);*/
 
             this.Controls.Add(listView);
         }
