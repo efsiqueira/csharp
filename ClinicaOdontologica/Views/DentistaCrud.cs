@@ -83,5 +83,11 @@ namespace Views
             this.Controls.Add(btDelete);
             this.Controls.Add(btFechar);
         }
+
+        private void btInserirClick(object sender, EventArgs e)
+        {
+            FormDentistaInsert form = new FormDentistaInsert();
+            form.Show();
+        }
     }
 }

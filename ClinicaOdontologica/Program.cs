@@ -40,7 +40,7 @@ namespace ClinicaOdontologica
         {
 
             Application.EnableVisualStyles();
-            Application.Run(new FormProcedimentoInsert());
+            Application.Run(new FormLogin());
 
             // Objeto variavel = new Objeto();
             // variavel.Show();

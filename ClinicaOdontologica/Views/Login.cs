@@ -86,7 +86,8 @@ namespace Views
                     }
                     if (Auth.Paciente != null)
                     {
-                        //MenuPaciente();
+                        FormPaciente form = new FormPaciente();
+                        form.Show();
                     }
                     Auth.Logout();
                 }
