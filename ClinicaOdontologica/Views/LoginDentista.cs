@@ -83,12 +83,14 @@ namespace Views
 
         private void buttonDentistaClick(object sender, EventArgs e)
         {
-
+            FormDentistaCrud form = new FormDentistaCrud();
+            form.Show();
         }
 
         private void buttonPacienteClick(object sender, EventArgs e)
         {
-            
+            FormPacienteCrud form = new FormPacienteCrud();
+            form.Show();
         }
 
         private void buttonProcedimentoClick(object sender, EventArgs e)

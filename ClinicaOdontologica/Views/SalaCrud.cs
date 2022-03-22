@@ -11,7 +11,7 @@ using Models;
 namespace Views
 {
     
-    public class FormDentistaCrud : Form
+    public class FormSalaCrud : Form
     {
 
         Label labelBoasVindas;
@@ -21,12 +21,12 @@ namespace Views
         Button btDelete;
         Button btFechar;
 
-        public FormDentistaCrud()
+        public FormSalaCrud()
         {
             this.ClientSize = new System.Drawing.Size(500,400);
 
             labelBoasVindas = new Label();
-            labelBoasVindas.Text = "PACIENTES";
+            labelBoasVindas.Text = "SALAS";
             labelBoasVindas.Location = new Point(0,20);
             labelBoasVindas.TextAlign = ContentAlignment.MiddleCenter;
             labelBoasVindas.Size = new Size(500,15);
@@ -57,15 +57,9 @@ namespace Views
             btFechar.Location = new Point(380,340);
             
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Fone", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Email", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Senha", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Registro", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Salario", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Id Especialidade", -2, HorizontalAlignment.Left);
-
+            listView.Columns.Add("Número", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Equipamentos", -2, HorizontalAlignment.Left);
+            
             listView.FullRowSelect = true;
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;

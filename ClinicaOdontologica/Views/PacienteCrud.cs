@@ -10,10 +10,8 @@ using Models;
 
 namespace Views
 {
-    
-    public class FormDentistaCrud : Form
+    public class FormPacienteCrud : Form
     {
-
         Label labelBoasVindas;
         ListView listView;
         Button btInserir;
@@ -21,7 +19,7 @@ namespace Views
         Button btDelete;
         Button btFechar;
 
-        public FormDentistaCrud()
+        public FormPacienteCrud()
         {
             this.ClientSize = new System.Drawing.Size(500,400);
 
@@ -55,16 +53,14 @@ namespace Views
             btFechar.Text = "Fechar";
             btFechar.Size = new Size(100,30);
             btFechar.Location = new Point(380,340);
-            
+
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
             listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Fone", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Email", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Senha", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Registro", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Salario", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Id Especialidade", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Data de Nascimento", -2, HorizontalAlignment.Left);
 
             listView.FullRowSelect = true;
 			listView.GridLines = true;
@@ -82,6 +78,7 @@ namespace Views
             this.Controls.Add(btUpdate);
             this.Controls.Add(btDelete);
             this.Controls.Add(btFechar);
+
         }
     }
 }

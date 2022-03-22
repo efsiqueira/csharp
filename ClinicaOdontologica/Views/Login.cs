@@ -56,13 +56,13 @@ namespace Views
 
             buttonConfirmar = new Button();
             buttonConfirmar.Text = "Confirmar";
-            buttonConfirmar.Size = new Size(80,30);
+            buttonConfirmar.Size = new Size(80,25);
             buttonConfirmar.Location = new Point(20,170);
             buttonConfirmar.Click += new EventHandler(this.buttonConfirmarClick);
             
             buttonFechar = new Button();
             buttonFechar.Text = "Fechar";
-            buttonFechar.Size = new Size(80,30);
+            buttonFechar.Size = new Size(80,25);
             buttonFechar.Location = new Point(100,170);
             buttonFechar.Click += new EventHandler(this.buttonFecharClick);
 
