@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -23,7 +24,7 @@ namespace Views
         TextBox textFone;
         TextBox textEmail;
         TextBox textSenha;
-        TextBox textDtNasc;
+        DateTimePicker dtPickerNascimento;
         Button btConfirmar;
         Button btFechar;
         public FormPacienteInsert()
@@ -66,9 +67,11 @@ namespace Views
             textFone.Location = new Point(143,110);
             textFone.Size = new Size(114,20);
 
-            textDtNasc = new TextBox();
-            textDtNasc.Location = new Point(266,110);
-            textDtNasc.Size = new Size(114,20);
+            dtPickerNascimento = new DateTimePicker();
+            dtPickerNascimento.MinDate = new DateTime(1900, 1, 1);
+            dtPickerNascimento.Location = new Point(266,110);
+            dtPickerNascimento.Format = DateTimePickerFormat.Short;
+            dtPickerNascimento.Size = new Size(114,20);
 
             textEmail = new TextBox();
             textEmail.Location = new Point(20,175);
@@ -77,16 +80,19 @@ namespace Views
             textSenha = new TextBox();
             textSenha.Location = new Point(20,240);
             textSenha.Size = new Size(360,20);
+            textSenha.PasswordChar = '*';
 
             btConfirmar = new Button();
             btConfirmar.Text = "Confirmar";
             btConfirmar.Location = new Point(90,295);
             btConfirmar.Size = new Size(100,25);
+            btConfirmar.Click += new EventHandler(this.btConfirmarClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
             btFechar.Location = new Point(210,295);
             btFechar.Size = new Size(100,25);
+            btFechar.Click += new EventHandler(this.btFecharClick);
 
             this.Controls.Add(labelName);
             this.Controls.Add(labelCpf);
@@ -97,12 +103,38 @@ namespace Views
             this.Controls.Add(textName);
             this.Controls.Add(textCpf);
             this.Controls.Add(textFone);
-            this.Controls.Add(textDtNasc);
+            this.Controls.Add(dtPickerNascimento);
             this.Controls.Add(textEmail);
             this.Controls.Add(textSenha);
             this.Controls.Add(btConfirmar);
             this.Controls.Add(btFechar);
 
+        }
+
+        private void btConfirmarClick(object sender, EventArgs e)
+        {
+            try
+            {
+                PacienteController.InserirPaciente(
+                textName.Text,
+                textCpf.Text,
+                textFone.Text,
+                textEmail.Text,
+                textSenha.Text,
+                dtPickerNascimento.Value
+                );
+                MessageBox.Show("Dados inseridos com sucesso");
+                this.Close();
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Não foi possível inserir os dados.");
+            }
+        }
+
+        private void btFecharClick(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

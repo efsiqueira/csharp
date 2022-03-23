@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -127,6 +128,32 @@ namespace Views
             this.Controls.Add(btConfirmar);
             this.Controls.Add(btFechar);
 
+        }
+
+        private void btConfirmarClick(object sender, EventArgs e)
+        {
+            double salario = Convert.ToDouble(textSalario.Text);
+            int id = int.Parse(textEspecialidadeId.Text);
+            try
+            {
+                DentistaController.InserirDentista(
+                textName.Text,
+                textCpf.Text,
+                textFone.Text,
+                textEmail.Text,
+                textSenha.Text,
+                textRegistro.Text,
+                salario,
+                id
+                );
+
+                MessageBox.Show("Dados inseridos com sucesso.");
+                this.Close();
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Não foi possível inserir os dados.");
+            }
         }
     }
 }

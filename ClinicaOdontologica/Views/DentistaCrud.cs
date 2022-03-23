@@ -26,7 +26,7 @@ namespace Views
             this.ClientSize = new System.Drawing.Size(500,400);
 
             labelBoasVindas = new Label();
-            labelBoasVindas.Text = "PACIENTES";
+            labelBoasVindas.Text = "DENTISTAS";
             labelBoasVindas.Location = new Point(0,20);
             labelBoasVindas.TextAlign = ContentAlignment.MiddleCenter;
             labelBoasVindas.Size = new Size(500,15);

@@ -38,6 +38,7 @@ namespace Views
             btInserir.Text = "Inserir";
             btInserir.Size = new Size(100,30);
             btInserir.Location = new Point(20,340);
+            btInserir.Click += new EventHandler(this.btInserirClick);
 
             btUpdate = new Button();
             btUpdate.Text = "Update";
@@ -79,6 +80,11 @@ namespace Views
             this.Controls.Add(btDelete);
             this.Controls.Add(btFechar);
 
+        }
+        private void btInserirClick(object sender, EventArgs e)
+        {
+            FormPacienteInsert form = new FormPacienteInsert();
+            form.Show();
         }
     }
 }

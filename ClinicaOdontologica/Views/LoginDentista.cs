@@ -43,26 +43,31 @@ namespace Views
             buttonPaciente.Text = "Paciente";
             buttonPaciente.Size = new Size(100,30);
             buttonPaciente.Location = new Point(135, 40);
+            buttonPaciente.Click += new EventHandler(this.buttonPacienteClick);
 
             buttonProcedimento = new Button();
             buttonProcedimento.Text = "Procedimento";
             buttonProcedimento.Size = new Size(100,30);
             buttonProcedimento.Location = new Point(25, 80);
+            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
 
             buttonEspecialidade = new Button();
             buttonEspecialidade.Text = "Especialidade";
             buttonEspecialidade.Size = new Size(100,30);
             buttonEspecialidade.Location = new Point(135, 80);
+            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
 
             buttonSala = new Button();
             buttonSala.Text = "Sala";
             buttonSala.Size = new Size(100,30);
             buttonSala.Location = new Point(25, 120);
+            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
 
             buttonAgendamento = new Button();
             buttonAgendamento.Text = "Agendamento";
             buttonAgendamento.Size = new Size(100,30);
             buttonAgendamento.Location = new Point(135, 120);
+            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
 
             buttonFechar = new Button();
             buttonFechar.Text = "Fechar";
