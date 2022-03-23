@@ -39,16 +39,18 @@ namespace ClinicaOdontologica
         public static void Main(string[] args)
         {
 
+            if (!EspecialidadeController.HasEspecialidades())
+            {
+                EspecialidadeController.InserirEspecialidade("Clínico Geral", "Dentista clínico geral");
+            }
+            
             Application.EnableVisualStyles();
             Application.Run(new FormLogin());
 
             // Objeto variavel = new Objeto();
             // variavel.Show();
 
-            /*if (EspecialidadeController.GetEspecialidade(1) == null)
-            {
-                EspecialidadeController.InserirEspecialidade("Endodontia", "Estruturas internas dos dentes");
-            }*/
+            
             //EspecialidadeController.InserirEspecialidade("Endodontia", "Estruturas internas dos dentes");
             //ProcedimentoController.InserirProcedimento("Extração dentária", 250.00);
             //DentistaController.InserirDentista("José do Carmo", "111.111.111-11", "47 99999-9999", "jose.carmo@dentista.com", "123456", "12345/SC", 15000, 1);

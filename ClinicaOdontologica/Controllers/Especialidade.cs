@@ -59,6 +59,11 @@ namespace Controllers
             return Especialidade.GetEspecialidades();
         }
 
+        public static bool HasEspecialidades()
+        {
+            return Especialidade.HasEspecialidades();
+        }
+
         public static Especialidade GetEspecialidade(
             int Id
         )

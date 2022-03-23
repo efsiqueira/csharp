@@ -39,5 +39,15 @@ namespace Views
             this.Controls.Add(btConfirmar);
             this.Controls.Add(btCancelar);
         }
+
+        private void btConfirmarClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btCancelarClick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

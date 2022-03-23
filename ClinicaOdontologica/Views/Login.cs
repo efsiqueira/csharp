@@ -75,23 +75,30 @@ namespace Views
             try
                 {
                     Auth.Login(textLogin.Text, textSenha.Text);
-                    if (Auth.Dentista != null)
+                    if (Auth.isLogged)
                     {
-                        FormDentista form = new FormDentista();
-                        form.Show();
                         this.Hide();
+                        if (Auth.Dentista != null)
+                        {
+                            FormDentista form = new FormDentista(this);
+                            form.Show();
+                        }
+                        if (Auth.Paciente != null)
+                        {
+                            FormPaciente form = new FormPaciente(this);
+                            form.Show();
+                        }
+                        Auth.Logout();
                     }
-                    if (Auth.Paciente != null)
-                    {
-                        FormPaciente form = new FormPaciente();
-                        form.Show();
-                        this.Hide();
-                    }
-                    Auth.Logout();
                 }
                 catch (Exception err)
                 {
-                    Console.WriteLine(err);
+                    MessageBox.Show(
+                        err.Message,
+                        "ERRO",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                 }
         }
 

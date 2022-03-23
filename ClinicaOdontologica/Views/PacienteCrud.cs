@@ -88,6 +88,16 @@ namespace Views
             form.Show();
         }
 
+        private void btUpdateClick(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void btDeleteClick(object sender, EventArgs e)
+        {
+            
+        }
+        
         private void btFecharClick(object sender, EventArgs e)
         {
             this.Close();

@@ -80,5 +80,28 @@ namespace Views
             this.Controls.Add(btDelete);
             this.Controls.Add(btFechar);
         }
+
+        private void btInserirClick(object sender, EventArgs e)
+        {
+            //FormAgendamentoInsert form = new FormAgendamentoInsert();
+            //form.Show();
+        }
+
+        private void btUpdateClick(object sender, EventArgs e)
+        {
+            //FormAgendamentoInsert form = new FormAgendamentoInsert();
+            //form.Show();
+        }
+
+        private void btDeleteClick(object sender, EventArgs e)
+        {
+            //FormAgendamentoInsert form = new FormAgendamentoInsert();
+            //form.Show();
+        }
+
+        private void btFecharClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

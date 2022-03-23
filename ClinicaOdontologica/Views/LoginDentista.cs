@@ -22,8 +22,11 @@ namespace Views
         Button buttonAgendamento;
         Button buttonFechar;
 
-        public FormDentista()
+        Form parent;
+
+        public FormDentista(Form parent)
         {
+            this.parent = parent;
             this.ClientSize = new System.Drawing.Size(260,220);
             this.Text = "Dentista";
 
@@ -125,8 +128,7 @@ namespace Views
         private void buttonFecharClick(object sender, EventArgs e)
         {
             this.Close();
-            FormLogin form = new FormLogin();
-            form.Show();
+            this.parent.Show();
         }
     }
 }

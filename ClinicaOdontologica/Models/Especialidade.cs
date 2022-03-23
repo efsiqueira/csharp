@@ -54,6 +54,12 @@ namespace Models
             return from Especialidade in db.Especialidades select Especialidade;
         }
 
+        public static bool HasEspecialidades()
+        {
+            Context db = new Context();
+            return (from Especialidade in db.Especialidades select Especialidade).Count() > 0;
+        }
+
         public static void RemoverEspecialidade(
             Especialidade especialidade
         )

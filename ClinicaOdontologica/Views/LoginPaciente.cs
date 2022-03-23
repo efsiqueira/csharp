@@ -16,9 +16,11 @@ namespace Views
         ListView listView;
         Button btConfirmar;
         Button btFechar;
+        Form parent;
 
-        public FormPaciente()
+        public FormPaciente(Form parent)
         {
+            this.parent = parent;
             this.ClientSize = new System.Drawing.Size(260,300);
             this.Text = "Paciente";
 
@@ -57,8 +59,7 @@ namespace Views
         private void btFecharClick(object sender, EventArgs e)
         {
             this.Close();
-            FormLogin form = new FormLogin();
-            form.Show();
+            this.parent.Show();
         }
     }
 }

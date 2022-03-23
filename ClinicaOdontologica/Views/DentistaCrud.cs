@@ -64,10 +64,9 @@ namespace Views
             listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Fone", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Email", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Senha", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Registro", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Salario", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Id Especialidade", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Especialidade", -2, HorizontalAlignment.Left);
 
             listView.FullRowSelect = true;
 			listView.GridLines = true;
@@ -79,12 +78,19 @@ namespace Views
 
             listView.Items.Add(firstLine);*/
 
-            /*foreach (Dentista item in DentistaController.VisualizarDentista())
+            foreach (Dentista item in DentistaController.VisualizarDentista())
             {
-                newLine = new ListViewItem();
-                newLine.SubItems.Add();
+                newLine = new ListViewItem(item.Id.ToString());
+                newLine.SubItems.Add(item.Nome);
+                newLine.SubItems.Add(item.Cpf);
+                newLine.SubItems.Add(item.Fone);
+                newLine.SubItems.Add(item.Email);
+                newLine.SubItems.Add(item.Registro);
+                newLine.SubItems.Add(string.Format("R$ {0:#.00}", Convert.ToDecimal(item.Salario) / 100));
+                newLine.SubItems.Add(item.Especialidade.Descricao);
 
-            }*/
+                listView.Items.Add(newLine);
+            }
 
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);
@@ -98,6 +104,21 @@ namespace Views
         {
             FormDentistaInsert form = new FormDentistaInsert();
             form.Show();
+        }
+
+        private void btUpdateClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btDeleteClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btFecharClick(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
