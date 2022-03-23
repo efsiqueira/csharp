@@ -38,6 +38,7 @@ namespace Views
             btInserir.Text = "Inserir";
             btInserir.Size = new Size(100,30);
             btInserir.Location = new Point(20,340);
+            btInserir.Click += new EventHandler(this.btInserirClick);
 
             btUpdate = new Button();
             btUpdate.Text = "Update";
@@ -53,6 +54,7 @@ namespace Views
             btFechar.Text = "Fechar";
             btFechar.Size = new Size(100,30);
             btFechar.Location = new Point(380,340);
+            btFechar.Click += new EventHandler(this.btFecharClick);
             
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
@@ -74,6 +76,17 @@ namespace Views
             this.Controls.Add(btUpdate);
             this.Controls.Add(btDelete);
             this.Controls.Add(btFechar);
+        }
+
+        private void btInserirClick(object sender, EventArgs e)
+        {
+            FormProcedimentoInsert form = new FormProcedimentoInsert();
+            form.Show();
+        }
+
+        private void btFecharClick(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

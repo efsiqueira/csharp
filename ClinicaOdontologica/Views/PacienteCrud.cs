@@ -54,6 +54,7 @@ namespace Views
             btFechar.Text = "Fechar";
             btFechar.Size = new Size(100,30);
             btFechar.Location = new Point(380,340);
+            btFechar.Click += new EventHandler(this.btFecharClick);
 
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
@@ -85,6 +86,11 @@ namespace Views
         {
             FormPacienteInsert form = new FormPacienteInsert();
             form.Show();
+        }
+
+        private void btFecharClick(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

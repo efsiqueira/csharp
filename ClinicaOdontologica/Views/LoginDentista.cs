@@ -49,7 +49,7 @@ namespace Views
             buttonProcedimento.Text = "Procedimento";
             buttonProcedimento.Size = new Size(100,30);
             buttonProcedimento.Location = new Point(25, 80);
-            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
+            buttonProcedimento.Click += new EventHandler(this.buttonProcedimentoClick);
 
             buttonEspecialidade = new Button();
             buttonEspecialidade.Text = "Especialidade";
@@ -61,13 +61,13 @@ namespace Views
             buttonSala.Text = "Sala";
             buttonSala.Size = new Size(100,30);
             buttonSala.Location = new Point(25, 120);
-            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
+            buttonSala.Click += new EventHandler(this.buttonSalaClick);
 
             buttonAgendamento = new Button();
             buttonAgendamento.Text = "Agendamento";
             buttonAgendamento.Size = new Size(100,30);
             buttonAgendamento.Location = new Point(135, 120);
-            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
+            buttonAgendamento.Click += new EventHandler(this.buttonAgendamentoClick);
 
             buttonFechar = new Button();
             buttonFechar.Text = "Fechar";
@@ -100,7 +100,8 @@ namespace Views
 
         private void buttonProcedimentoClick(object sender, EventArgs e)
         {
-            
+            FormProcedimentoCrud form = new FormProcedimentoCrud();
+            form.Show();
         }
 
         private void buttonEspecialidadeClick(object sender, EventArgs e)
@@ -111,12 +112,14 @@ namespace Views
 
         private void buttonSalaClick(object sender, EventArgs e)
         {
-            
+            FormSalaCrud form = new FormSalaCrud();
+            form.Show();
         }
 
         private void buttonAgendamentoClick(object sender, EventArgs e)
         {
-            
+            FormAgendamentoCrud form = new FormAgendamentoCrud();
+            form.Show();
         }
 
         private void buttonFecharClick(object sender, EventArgs e)

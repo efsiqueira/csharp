@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -16,6 +17,7 @@ namespace Views
 
         Label labelBoasVindas;
         ListView listView;
+        ListViewItem newLine;
         Button btInserir;
         Button btUpdate;
         Button btDelete;
@@ -76,6 +78,13 @@ namespace Views
             firstLine.SubItems.Add("Jose do Carmo");
 
             listView.Items.Add(firstLine);*/
+
+            /*foreach (Dentista item in DentistaController.VisualizarDentista())
+            {
+                newLine = new ListViewItem();
+                newLine.SubItems.Add();
+
+            }*/
 
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);
