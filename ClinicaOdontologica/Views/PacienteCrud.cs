@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -14,6 +15,7 @@ namespace Views
     {
         Label labelBoasVindas;
         ListView listView;
+        ListViewItem newLine;
         Button btInserir;
         Button btUpdate;
         Button btDelete;
@@ -44,11 +46,13 @@ namespace Views
             btUpdate.Text = "Update";
             btUpdate.Size = new Size(100,30);
             btUpdate.Location = new Point(140,340);
+            btUpdate.Click += new EventHandler(this.btUpdateClick);
 
             btDelete = new Button();
             btDelete.Text = "Delete";
             btDelete.Size = new Size(100,30);
             btDelete.Location = new Point(260,340);
+            btDelete.Click += new EventHandler(this.btDeleteClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
@@ -61,7 +65,6 @@ namespace Views
             listView.Columns.Add("CPF", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Fone", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Email", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Senha", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Data de Nascimento", -2, HorizontalAlignment.Left);
 
             listView.FullRowSelect = true;
@@ -69,10 +72,17 @@ namespace Views
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
 
-            /*ListViewItem firstLine = new ListViewItem("1");
-            firstLine.SubItems.Add("Jose do Carmo");
-
-            listView.Items.Add(firstLine);*/
+            foreach (Paciente item in PacienteController.VisualizarPaciente())
+            {
+                newLine = new ListViewItem(item.Id.ToString());
+                newLine.SubItems.Add(item.Nome);
+                newLine.SubItems.Add(item.Cpf);
+                newLine.SubItems.Add(item.Fone);
+                newLine.SubItems.Add(item.Email);
+                newLine.SubItems.Add(item.DataNascimento.ToString());
+                
+                listView.Items.Add(newLine);
+            }
 
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);

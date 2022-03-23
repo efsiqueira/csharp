@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -16,6 +17,7 @@ namespace Views
 
         Label labelBoasVindas;
         ListView listView;
+        ListViewItem newLine;
         Button btInserir;
         Button btUpdate;
         Button btDelete;
@@ -46,11 +48,13 @@ namespace Views
             btUpdate.Text = "Update";
             btUpdate.Size = new Size(100,30);
             btUpdate.Location = new Point(140,340);
+            btUpdate.Click += new EventHandler(this.btUpdateClick);
 
             btDelete = new Button();
             btDelete.Text = "Delete";
             btDelete.Size = new Size(100,30);
             btDelete.Location = new Point(260,340);
+            btDelete.Click += new EventHandler(this.btDeleteClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
@@ -66,10 +70,14 @@ namespace Views
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
 
-            /*ListViewItem firstLine = new ListViewItem("1");
-            firstLine.SubItems.Add("Jose do Carmo");
+            foreach (Sala item in SalaController.VisualizarSala())
+            {
+                newLine = new ListViewItem(item.Id.ToString());
+                newLine.SubItems.Add(item.Numero.ToString());
+                newLine.SubItems.Add(item.Equipamentos);
 
-            listView.Items.Add(firstLine);*/
+                listView.Items.Add(newLine);
+            }
 
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);
@@ -83,6 +91,16 @@ namespace Views
         {
             FormSalaInsert form = new FormSalaInsert();
             form.Show();
+        }
+
+        private void btUpdateClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btDeleteClick(object sender, EventArgs e)
+        {
+            
         }
 
         private void btFecharClick(object sender, EventArgs e)

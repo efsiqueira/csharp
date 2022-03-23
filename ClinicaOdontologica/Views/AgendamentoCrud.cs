@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -16,6 +17,7 @@ namespace Views
 
         Label labelBoasVindas;
         ListView listView;
+        ListViewItem newLine;
         Button btInserir;
         Button btUpdate;
         Button btDelete;
@@ -57,9 +59,9 @@ namespace Views
             btFechar.Location = new Point(380,340);
             
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Id Paciente", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Id Dentista", -2, HorizontalAlignment.Left);
-            listView.Columns.Add("Id Sala", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Paciente", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Dentista", -2, HorizontalAlignment.Left);
+            listView.Columns.Add("Sala", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Data", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Confirmado?", -2, HorizontalAlignment.Left);
             
@@ -67,11 +69,16 @@ namespace Views
 			listView.GridLines = true;
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
-
-            /*ListViewItem firstLine = new ListViewItem("1");
-            firstLine.SubItems.Add("Jose do Carmo");
-
-            listView.Items.Add(firstLine);*/
+            
+            foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
+            {
+                newLine = new ListViewItem(item.Id.ToString());
+                newLine.SubItems.Add(item.Paciente.Nome);                
+                newLine.SubItems.Add(item.Dentista.Nome);                
+                newLine.SubItems.Add(item.Sala.Numero);    
+                newLine.SubItems.Add(item.Data.ToString());                
+                newLine.SubItems.Add(item.Confirmado.ToString());
+            }
 
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);
