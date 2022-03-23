@@ -86,6 +86,7 @@ namespace Views
             textSenha = new TextBox();
             textSenha.Location = new Point(20,240);
             textSenha.Size = new Size(360,20);
+            textSenha.PasswordChar = '*';
 
             textRegistro = new TextBox();
             textRegistro.Location = new Point(20,305);
@@ -103,11 +104,13 @@ namespace Views
             btConfirmar.Text = "Confirmar";
             btConfirmar.Location = new Point(90,360);
             btConfirmar.Size = new Size(100,25);
+            btConfirmar.Click += new EventHandler(this.btConfirmarClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
             btFechar.Location = new Point(210,360);
             btFechar.Size = new Size(100,25);
+            btFechar.Click += new EventHandler(this.btFecharClick);
 
             this.Controls.Add(labelName);
             this.Controls.Add(labelCpf);
@@ -156,7 +159,7 @@ namespace Views
             }
         }
 
-        private void btFecharClick(object sender, EventHandler e)
+        private void btFecharClick(object sender, EventArgs e)
         {
             this.Close();
         }

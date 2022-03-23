@@ -57,6 +57,8 @@ namespace Views
         private void btFecharClick(object sender, EventArgs e)
         {
             this.Close();
+            FormLogin form = new FormLogin();
+            form.Show();
         }
     }
 }

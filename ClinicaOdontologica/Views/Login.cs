@@ -10,18 +10,6 @@ using Models;
 
 namespace Views
 {
-    /*static class Login
-    {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-			
-        }
-    }*/
-
     public class FormLogin : Form
     {
 
@@ -31,10 +19,11 @@ namespace Views
         TextBox textSenha;
         Button buttonConfirmar;
         Button buttonFechar;
+        Button btCadastrar;
 
         public FormLogin()
         {
-            this.ClientSize = new System.Drawing.Size(200, 220);
+            this.ClientSize = new System.Drawing.Size(280, 220);
             this.Text = "Login";
 
             labelLogin = new Label();
@@ -47,11 +36,11 @@ namespace Views
 
             textLogin = new TextBox();
             textLogin.Location = new Point(20,45);
-            textLogin.Size = new Size(160,15);
+            textLogin.Size = new Size(240,15);
 
             textSenha = new TextBox();
             textSenha.Location = new Point(20,115);
-            textSenha.Size = new Size(160,15);
+            textSenha.Size = new Size(240,15);
             textSenha.PasswordChar = '*';
 
             buttonConfirmar = new Button();
@@ -60,10 +49,16 @@ namespace Views
             buttonConfirmar.Location = new Point(20,170);
             buttonConfirmar.Click += new EventHandler(this.buttonConfirmarClick);
             
+            btCadastrar = new Button();
+            btCadastrar.Text = "Cadastrar";
+            btCadastrar.Size = new Size(80,25);
+            btCadastrar.Location = new Point(100,170);
+            btCadastrar.Click += new EventHandler(this.btCadastrarClick);
+
             buttonFechar = new Button();
             buttonFechar.Text = "Fechar";
             buttonFechar.Size = new Size(80,25);
-            buttonFechar.Location = new Point(100,170);
+            buttonFechar.Location = new Point(180,170);
             buttonFechar.Click += new EventHandler(this.buttonFecharClick);
 
             this.Controls.Add(labelLogin);
@@ -72,6 +67,7 @@ namespace Views
             this.Controls.Add(textSenha);
             this.Controls.Add(buttonConfirmar);
             this.Controls.Add(buttonFechar);
+            this.Controls.Add(btCadastrar);
         }
 
         private void buttonConfirmarClick(object sender, EventArgs e)
@@ -83,11 +79,13 @@ namespace Views
                     {
                         FormDentista form = new FormDentista();
                         form.Show();
+                        this.Hide();
                     }
                     if (Auth.Paciente != null)
                     {
                         FormPaciente form = new FormPaciente();
                         form.Show();
+                        this.Hide();
                     }
                     Auth.Logout();
                 }
@@ -100,6 +98,12 @@ namespace Views
         private void buttonFecharClick(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btCadastrarClick(object sender, EventArgs e)
+        {
+            FormDentistaInsert form = new FormDentistaInsert();
+            form.Show();
         }
 
     }

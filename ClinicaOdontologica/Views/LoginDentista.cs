@@ -122,6 +122,8 @@ namespace Views
         private void buttonFecharClick(object sender, EventArgs e)
         {
             this.Close();
+            FormLogin form = new FormLogin();
+            form.Show();
         }
     }
 }
