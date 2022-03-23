@@ -55,7 +55,7 @@ namespace Views
             buttonEspecialidade.Text = "Especialidade";
             buttonEspecialidade.Size = new Size(100,30);
             buttonEspecialidade.Location = new Point(135, 80);
-            //buttonDentista.Click += new EventHandler(this.buttonDentistaClick);
+            buttonEspecialidade.Click += new EventHandler(this.buttonEspecialidadeClick);
 
             buttonSala = new Button();
             buttonSala.Text = "Sala";
@@ -105,7 +105,8 @@ namespace Views
 
         private void buttonEspecialidadeClick(object sender, EventArgs e)
         {
-            
+            FormEspecialidadeCrud form = new FormEspecialidadeCrud();
+            form.Show();
         }
 
         private void buttonSalaClick(object sender, EventArgs e)

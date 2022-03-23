@@ -11,48 +11,50 @@ using Controllers;
 
 namespace Views
 {
-    public class FormProcedimentoInsert : Form
+    public class FormEspecialidadeInsert : Form
     {
         Label labelDescricao;
-        Label labelPreco;
+        Label labelDetalhamento;
         TextBox textDescricao;
-        TextBox textPreco;
+        TextBox textDetalhamento;
         Button btConfirmar;
         Button btFechar;
-        public FormProcedimentoInsert()
+        public FormEspecialidadeInsert()
         {
-            this.ClientSize = new System.Drawing.Size(300,240);
+            this.ClientSize = new System.Drawing.Size(400,420);
 
             labelDescricao = new Label();
             labelDescricao.Text = "Descrição";
             labelDescricao.Location = new Point(20,20);
 
-            labelPreco = new Label();
-            labelPreco.Text = "Preço";
-            labelPreco.Location = new Point(20,85);
+            labelDetalhamento = new Label();
+            labelDetalhamento.Text = "Detalhamento";
+            labelDetalhamento.Location = new Point(20,85);
 
             textDescricao = new TextBox();
             textDescricao.Location = new Point(20,45);
-            textDescricao.Size = new Size(260,20);
+            textDescricao.Size = new Size(360,20);
 
-            textPreco = new TextBox();
-            textPreco.Location = new Point(20,110);
-            textPreco.Size = new Size(260,20);
+            textDetalhamento = new TextBox();
+            textDetalhamento.Location = new Point(20,110);
+            textDetalhamento.Size = new Size(175,20);
 
             btConfirmar = new Button();
             btConfirmar.Text = "Confirmar";
-            btConfirmar.Location = new Point(55,180);
-            btConfirmar.Size = new Size(90,25);
+            btConfirmar.Location = new Point(90,360);
+            btConfirmar.Size = new Size(100,25);
+            btConfirmar.Click += new EventHandler(this.btConfirmarClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
-            btFechar.Location = new Point(155,180);
-            btFechar.Size = new Size(90,25);
+            btFechar.Location = new Point(210,360);
+            btFechar.Size = new Size(100,25);
+            btFechar.Click += new EventHandler(this.btFecharClick);
 
             this.Controls.Add(labelDescricao);
-            this.Controls.Add(labelPreco);
+            this.Controls.Add(labelDetalhamento);
             this.Controls.Add(textDescricao);
-            this.Controls.Add(textPreco);
+            this.Controls.Add(textDetalhamento);
             this.Controls.Add(btConfirmar);
             this.Controls.Add(btFechar);
 
@@ -60,12 +62,11 @@ namespace Views
 
         private void btConfirmarClick(object sender, EventArgs e)
         {
-            double preco = Convert.ToDouble(textPreco.Text);
             try
             {
-                ProcedimentoController.InserirProcedimento(
+                EspecialidadeController.InserirEspecialidade(
                 textDescricao.Text,
-                preco
+                textDetalhamento.Text
                 );
 
                 MessageBox.Show("Dados inseridos com sucesso.");
@@ -75,7 +76,6 @@ namespace Views
             {
                 MessageBox.Show("Não foi possível inserir os dados.");
             }
-            
         }
 
         private void btFecharClick(object sender, EventArgs e)

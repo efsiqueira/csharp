@@ -155,5 +155,10 @@ namespace Views
                 MessageBox.Show("Não foi possível inserir os dados.");
             }
         }
+
+        private void btFecharClick(object sender, EventHandler e)
+        {
+            this.Close();
+        }
     }
 }
