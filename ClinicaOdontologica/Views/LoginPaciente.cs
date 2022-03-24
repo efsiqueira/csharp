@@ -15,7 +15,7 @@ namespace Views
     public class FormPaciente : Form
     {
         ListView listView;
-        ListView newLine;
+        ListViewItem newLine;
         Button btConfirmar;
         Button btFechar;
         Form parent;
@@ -53,16 +53,20 @@ namespace Views
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
            
-            /*try
+            try
             {
-                foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
+                foreach (Agendamento item in AgendamentoController.GetAgendamentosPorPaciente(Auth.Paciente.Id))
                 {
-                    
+                    newLine = new ListViewItem(item.Paciente.Id.ToString());
+                    newLine.SubItems.Add(item.Dentista.Nome);
+                    newLine.SubItems.Add(item.Data.ToString());
+                    newLine.SubItems.Add(item.Sala.Numero);
+                    newLine.SubItems.Add(item.Confirmado ? "Sim" : "Não");
                 }
             }
             catch (System.Exception)
             {
-            }*/
+            }
 
             this.Controls.Add(listView);
             this.Controls.Add(btConfirmar);
