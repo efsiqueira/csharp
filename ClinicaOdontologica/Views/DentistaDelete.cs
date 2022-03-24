@@ -47,9 +47,19 @@ namespace Views
 
         private void btConfirmarClick(object sender, EventArgs e)
         {
-            DentistaController.ExcluirDentista(
-                this.id
-            );
+            try
+            {
+                DentistaController.ExcluirDentista(
+                    this.id
+                );
+
+                MessageBox.Show("Dentista deletado com sucesso!");
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Erro ao deletar dentista.");
+            }   
         }
 
         private void btCancelarClick(object sender, EventArgs e)

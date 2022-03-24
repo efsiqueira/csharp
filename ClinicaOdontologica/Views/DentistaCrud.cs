@@ -106,8 +106,8 @@ namespace Views
 
         private void btUpdateClick(object sender, EventArgs e)
         {
-            FormDentistaInsert form = new FormDentistaInsert();
-            form.Show();
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new FormDentistaInsert(Convert.ToInt32(itemSelecionado.Text)).Show();
         }
 
         private void btDeleteClick(object sender, EventArgs e)

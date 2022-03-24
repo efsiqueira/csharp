@@ -99,6 +99,7 @@ namespace Controllers
             dentista.Id = Id;
             dentista.EspecialidadeId = EspecialidadeId;
             return dentista;
+
         }
 
         public static Dentista ExcluirDentista(
