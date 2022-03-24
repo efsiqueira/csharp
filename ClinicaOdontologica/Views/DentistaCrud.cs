@@ -48,11 +48,13 @@ namespace Views
             btUpdate.Text = "Update";
             btUpdate.Size = new Size(100,30);
             btUpdate.Location = new Point(140,340);
+            btUpdate.Click += new EventHandler(this.btUpdateClick);
 
             btDelete = new Button();
             btDelete.Text = "Delete";
             btDelete.Size = new Size(100,30);
             btDelete.Location = new Point(260,340);
+            btDelete.Click += new EventHandler(this.btDeleteClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
@@ -84,7 +86,7 @@ namespace Views
                 newLine.SubItems.Add(item.Registro);
                 newLine.SubItems.Add(string.Format("R$ {0:#.00}", Convert.ToDecimal(item.Salario) / 100));
                 newLine.SubItems.Add(item.Especialidade.Descricao);
-
+                
                 listView.Items.Add(newLine);
             }
 
@@ -109,7 +111,8 @@ namespace Views
 
         private void btDeleteClick(object sender, EventArgs e)
         {
-            
+            ListViewItem itemSelecionado = listView.SelectedItems[0];
+            new FormDentistaDelete(Convert.ToInt32(itemSelecionado.Text)).Show();
         }
 
         private void btFecharClick(object sender, EventArgs e)

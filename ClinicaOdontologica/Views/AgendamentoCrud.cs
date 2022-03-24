@@ -42,21 +42,25 @@ namespace Views
             btInserir.Text = "Inserir";
             btInserir.Size = new Size(100,30);
             btInserir.Location = new Point(20,340);
+            btInserir.Click += new EventHandler(this.btInserirClick);
 
             btUpdate = new Button();
             btUpdate.Text = "Update";
             btUpdate.Size = new Size(100,30);
             btUpdate.Location = new Point(140,340);
+            btUpdate.Click += new EventHandler(this.btUpdateClick);
 
             btDelete = new Button();
             btDelete.Text = "Delete";
             btDelete.Size = new Size(100,30);
             btDelete.Location = new Point(260,340);
+            btDelete.Click += new EventHandler(this.btDeleteClick);
 
             btFechar = new Button();
             btFechar.Text = "Fechar";
             btFechar.Size = new Size(100,30);
             btFechar.Location = new Point(380,340);
+            btFechar.Click += new EventHandler(this.btFecharClick);
             
             listView.Columns.Add("Id", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Paciente", -2, HorizontalAlignment.Left);
@@ -70,15 +74,34 @@ namespace Views
 			listView.AllowColumnReorder = true;
 			listView.Sorting = SortOrder.Ascending;
             
-            foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
+            try {
+                foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
+                {
+                    newLine = new ListViewItem(item.Id.ToString());
+                    newLine.SubItems.Add(item.Paciente.Nome);          
+                    newLine.SubItems.Add(item.Dentista.Nome);                
+                    newLine.SubItems.Add(item.Sala.Numero);  
+                    newLine.SubItems.Add(item.Data.ToString());                
+                    newLine.SubItems.Add(item.Confirmado.ToString());
+
+                    listView.Items.Add(newLine);
+                }
+            }
+            catch
+            {
+            }
+
+            /*foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
             {
                 newLine = new ListViewItem(item.Id.ToString());
-                newLine.SubItems.Add(item.Paciente.Nome);                
-                newLine.SubItems.Add(item.Dentista.Nome);                
-                newLine.SubItems.Add(item.Sala.Numero);    
+                newLine.SubItems.Add(item.PacienteId.ToString());   
+                newLine.SubItems.Add(item.DentistaId.ToString());                
+                newLine.SubItems.Add(item.SalaId.ToString());  
                 newLine.SubItems.Add(item.Data.ToString());                
                 newLine.SubItems.Add(item.Confirmado.ToString());
-            }
+
+                listView.Items.Add(newLine);
+            }*/
 
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);

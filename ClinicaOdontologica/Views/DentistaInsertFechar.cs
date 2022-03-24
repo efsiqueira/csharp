@@ -15,9 +15,11 @@ namespace Views
         Label labelCancelar;
         Button btConfirmar;
         Button btCancelar;
-        public FormDentistaFechar()
+        Form parent;
+        public FormDentistaFechar(Form parent)
         {
             this.ClientSize = new Size(200,160);
+            this.parent = parent;
 
             labelCancelar = new Label();
             labelCancelar.Text = "Deseja realmente cancelar a operação?";
