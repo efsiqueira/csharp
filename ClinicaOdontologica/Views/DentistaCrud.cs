@@ -106,7 +106,8 @@ namespace Views
 
         private void btUpdateClick(object sender, EventArgs e)
         {
-            
+            FormDentistaInsert form = new FormDentistaInsert();
+            form.Show();
         }
 
         private void btDeleteClick(object sender, EventArgs e)

@@ -91,18 +91,6 @@ namespace Views
             {
             }
 
-            /*foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
-            {
-                newLine = new ListViewItem(item.Id.ToString());
-                newLine.SubItems.Add(item.PacienteId.ToString());   
-                newLine.SubItems.Add(item.DentistaId.ToString());                
-                newLine.SubItems.Add(item.SalaId.ToString());  
-                newLine.SubItems.Add(item.Data.ToString());                
-                newLine.SubItems.Add(item.Confirmado.ToString());
-
-                listView.Items.Add(newLine);
-            }*/
-
             this.Controls.Add(labelBoasVindas);
             this.Controls.Add(listView);
             this.Controls.Add(btInserir);
@@ -113,8 +101,8 @@ namespace Views
 
         private void btInserirClick(object sender, EventArgs e)
         {
-            //FormAgendamentoInsert form = new FormAgendamentoInsert();
-            //form.Show();
+            FormAgendamentoInsert form = new FormAgendamentoInsert();
+            form.Show();
         }
 
         private void btUpdateClick(object sender, EventArgs e)

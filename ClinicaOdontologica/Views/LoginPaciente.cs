@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Models;
+using Controllers;
 
 namespace Views
 {
@@ -14,6 +15,7 @@ namespace Views
     public class FormPaciente : Form
     {
         ListView listView;
+        ListView newLine;
         Button btConfirmar;
         Button btFechar;
         Form parent;
@@ -45,6 +47,22 @@ namespace Views
             listView.Columns.Add("Data", -2, HorizontalAlignment.Center);
             listView.Columns.Add("Sala", -2, HorizontalAlignment.Center);
             listView.Columns.Add("Check", -2, HorizontalAlignment.Center);
+
+            listView.FullRowSelect = true;
+			listView.GridLines = true;
+			listView.AllowColumnReorder = true;
+			listView.Sorting = SortOrder.Ascending;
+           
+            /*try
+            {
+                foreach (Agendamento item in AgendamentoController.VisualizarAgendamento())
+                {
+                    
+                }
+            }
+            catch (System.Exception)
+            {
+            }*/
 
             this.Controls.Add(listView);
             this.Controls.Add(btConfirmar);
