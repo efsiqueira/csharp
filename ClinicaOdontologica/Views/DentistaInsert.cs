@@ -203,50 +203,50 @@ namespace Views
             textName = new TextBox();
             textName.Location = new Point(20,45);
             textName.Size = new Size(360,20);
-            //textName.Text = dentista.Nome;
+            textName.Text = dentista.Nome;
             //textName.Enabled = false;
 
             textCpf = new TextBox();
             textCpf.Location = new Point(20,110);
             textCpf.Size = new Size(175,20);
-            //textCpf.Text = dentista.Cpf;
+            textCpf.Text = dentista.Cpf;
             //textCpf.Enabled = false;
 
             textFone = new TextBox();
             textFone.Location = new Point(205,110);
             textFone.Size = new Size(175,20);
-            //textFone.Text = dentista.Fone;
+            textFone.Text = dentista.Fone;
             //textFone.Enabled = false;
 
             textEmail = new TextBox();
             textEmail.Location = new Point(20,175);
             textEmail.Size = new Size(360,20);
-            //textEmail.Text = dentista.Email;
+            textEmail.Text = dentista.Email;
             //textEmail.Enabled = false;
 
             textSenha = new TextBox();
             textSenha.Location = new Point(20,240);
             textSenha.Size = new Size(360,20);
             textSenha.PasswordChar = '*';
-            //textSenha.Text = dentista.Senha;
+            textSenha.Text = dentista.Senha;
             //textSenha.Enabled = false;
 
             textRegistro = new TextBox();
             textRegistro.Location = new Point(20,305);
             textRegistro.Size = new Size(114,20);
-            //textRegistro.Text = dentista.Registro;
+            textRegistro.Text = dentista.Registro;
             //textRegistro.Enabled = false;
 
             textSalario = new TextBox();
             textSalario.Location = new Point(143,305);
             textSalario.Size = new Size(114,20);
-            //textSalario.Text = dentista.Salario.ToString();
+            textSalario.Text = dentista.Salario.ToString();
             //textSalario.Enabled = false;
 
             textEspecialidadeId = new TextBox();
             textEspecialidadeId.Location = new Point(266,305);
             textEspecialidadeId.Size = new Size(114,20);
-            //textEspecialidadeId.Text = dentista.EspecialidadeId.ToString();
+            textEspecialidadeId.Text = dentista.EspecialidadeId.ToString();
             //textEspecialidadeId.Enabled = false;
 
             btConfirmar = new Button();

@@ -63,6 +63,53 @@ namespace Models
             db.SaveChanges();
         }
 
+        public static Dentista AlterarDentista(
+            int Id,
+            string Nome,
+            string Cpf,
+            string Fone,
+            string Email,
+            string Senha,
+            string Registro,
+            double Salario,
+            int EspecialidadeId
+        )
+        {
+            Dentista dentista = GetDentista(Id);
+            dentista.Nome = Nome;
+            dentista.Cpf = Cpf;
+            dentista.Fone = Fone;
+            dentista.Email = Email;
+            dentista.Senha = Senha;
+            dentista.Registro = Registro;
+            dentista.Salario = Salario;
+            dentista.EspecialidadeId = EspecialidadeId;
+
+            Context db = new Context();
+            db.Dentistas.Update(dentista);
+            db.SaveChanges();
+
+            return dentista;
+        }
+
+        public static Dentista GetDentista(
+            int Id
+        )
+        {
+            Dentista dentista = (
+                from Dentista in Dentista.GetDentistas()
+                    where Dentista.Id == Id
+                    select Dentista
+            ).First();
+
+            if (dentista == null)
+            {
+                throw new Exception("Dentista não encontrado");
+            }
+
+            return dentista;
+        }
+
         public static Dentista VerifyLogin(
             string Email,
             string Senha

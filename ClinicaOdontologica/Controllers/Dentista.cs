@@ -68,36 +68,53 @@ namespace Controllers
         )
         {
             Dentista dentista = GetDentista(Id);
+            Especialidade especialidade = EspecialidadeController.GetEspecialidade(EspecialidadeId);
 
-            EspecialidadeController.GetEspecialidade(EspecialidadeId);
+            if (String.IsNullOrEmpty(Nome))
+            {
+                Nome = dentista.Nome;
+            }
+            if (String.IsNullOrEmpty(Cpf))
+            {
+                Cpf = dentista.Cpf;
+            }
+            if (String.IsNullOrEmpty(Fone))
+            {
+                Fone = dentista.Fone;
+            }
+            if (String.IsNullOrEmpty(Email))
+            {
+                Email = dentista.Email;
+            }
+            if (!String.IsNullOrEmpty(Senha) && !BCrypt.Net.BCrypt.Equals(Senha,dentista.Senha))
+            {
+                Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
+            }
+            else
+            {
+                Senha = dentista.Senha;
+            }
+            if (String.IsNullOrEmpty(Registro))
+            {
+                Registro = dentista.Registro;
+            }
 
-            if (!String.IsNullOrEmpty(Nome))
-            {
-                dentista.Nome = Nome;
-            }
-            if (!String.IsNullOrEmpty(Cpf))
-            {
-                dentista.Cpf = Cpf;
-            }
-            if (!String.IsNullOrEmpty(Fone))
-            {
-                dentista.Fone = Fone;
-            }
-            if (!String.IsNullOrEmpty(Email))
-            {
-                dentista.Email = Email;
-            }
-            if (!String.IsNullOrEmpty(Senha))
-            {
-                dentista.Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
-            }
-            if (!String.IsNullOrEmpty(Registro))
-            {
-                dentista.Registro = Registro;
+            if (Salario <= 0) {
+                Salario = dentista.Salario;
             }
 
-            dentista.Id = Id;
-            dentista.EspecialidadeId = EspecialidadeId;
+            Dentista.AlterarDentista(
+                Id,
+                Nome,
+                Cpf,
+                Fone,
+                Email,
+                Senha,
+                Registro,
+                Salario,
+                especialidade.Id
+            );
+
             return dentista;
 
         }
@@ -120,18 +137,7 @@ namespace Controllers
             int Id
         )
         {
-            Dentista dentista = (
-                from Dentista in Dentista.GetDentistas()
-                    where Dentista.Id == Id
-                    select Dentista
-            ).First();
-
-            if (dentista == null)
-            {
-                throw new Exception("Dentista não encontrado");
-            }
-
-            return dentista;
+            return Dentista.GetDentista(Id);
         }
     }
 }
